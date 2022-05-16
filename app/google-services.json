@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "111748515757",
+    "project_id": "native-dev-chat",
+    "storage_bucket": "native-dev-chat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111748515757:android:5b2075f44b1764890b0324",
+        "android_client_info": {
+          "package_name": "com.kbds.nativedev.kbchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "111748515757-daaq4s79l3uc5kofhpnfg1oafvff74ha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAor_ko_c3cYOmy4dz-KdZMi2kqRXz2mTA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "111748515757-daaq4s79l3uc5kofhpnfg1oafvff74ha.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
