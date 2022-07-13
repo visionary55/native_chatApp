@@ -3,7 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Dong wan/AndroidStudioProjects/KBChat/app/src/main/res/layout/activity_login.xml" value="0.39114583333333336" />
         <entry key="..\:/Users/Dong wan/AndroidStudioProjects/KBChat/app/src/main/res/layout/activity_main.xml" value="0.2767210144927536" />
+        <entry key="..\:/Users/Dong wan/AndroidStudioProjects/KBChat/app/src/main/res/layout/bottom_menu.xml" value="0.3765625" />
+        <entry key="..\:/Users/Dong wan/AndroidStudioProjects/KBChat/app/src/main/res/layout/fragment_chat.xml" value="0.3104166666666667" />
+        <entry key="..\:/Users/Dong wan/AndroidStudioProjects/KBChat/app/src/main/res/layout/fragment_friend.xml" value="0.3104166666666667" />
+        <entry key="..\:/Users/Dong wan/AndroidStudioProjects/KBChat/app/src/main/res/layout/fragment_friend_fragmet.xml" value="0.3104166666666667" />
+        <entry key="..\:/Users/Dong wan/AndroidStudioProjects/KBChat/app/src/main/res/layout/fragment_setting.xml" value="0.3104166666666667" />
       </map>
     </option>
   </component>
