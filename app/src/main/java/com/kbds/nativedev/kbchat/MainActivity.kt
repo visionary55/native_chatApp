@@ -7,11 +7,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.kbds.nativedev.kbchat.fragment.ChatFragment
 import com.kbds.nativedev.kbchat.fragment.FriendFragment
 import com.kbds.nativedev.kbchat.fragment.SettingFragment
+import com.kbds.nativedev.kbchat.fragment.SettingNaviFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 private lateinit var friendFragment: FriendFragment
 private lateinit var chatFragmet: ChatFragment
 private lateinit var settingFragmet: SettingFragment
+private lateinit var settingNaviFragment: SettingNaviFragment
 
 @Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
@@ -24,11 +26,14 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().replace(R.id.fragment_frame, friendFragment).commit()
     }
 
+    private lateinit var callback: OnChangeSettingFragment
+
     private val BottomNavItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener{
         Log.d("itemId", "${it.itemId}")
         Log.d("menu_friend", "${R.id.menu_friend}")
         Log.d("menu_chat", "${R.id.menu_chat}")
         Log.d("menu_setting", "${R.id.menu_setting}")
+
         when(it.itemId){
             R.id.menu_friend -> {
                 friendFragment = FriendFragment.newInstance()
@@ -39,10 +44,21 @@ class MainActivity : AppCompatActivity() {
                 supportFragmentManager.beginTransaction().replace(R.id.fragment_frame, chatFragmet).commit()
             }
             R.id.menu_setting -> {
+                callback = object : OnChangeSettingFragment {
+                    override fun onModifyUser() {
+                        supportFragmentManager.beginTransaction().replace(R.id.fragment_frame, settingFragmet).commit()
+                    }
+                }
                 settingFragmet = SettingFragment.newInstance()
-                supportFragmentManager.beginTransaction().replace(R.id.fragment_frame, settingFragmet).commit()
+                settingNaviFragment = SettingNaviFragment.newInstance(callback)
+
+                supportFragmentManager.beginTransaction().replace(R.id.fragment_frame, settingNaviFragment).commit()
             }
         }
         true
+    }
+
+    interface OnChangeSettingFragment {
+        fun onModifyUser()
     }
 }
