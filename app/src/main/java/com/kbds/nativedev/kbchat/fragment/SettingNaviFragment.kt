@@ -8,6 +8,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import com.kbds.nativedev.kbchat.MainActivity.OnChangeSettingFragment
 import com.kbds.nativedev.kbchat.R
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import android.widget.Toast
+
+private lateinit var auth: FirebaseAuth
 
 class SettingNaviFragment : Fragment() {
     companion object {
@@ -39,8 +45,12 @@ class SettingNaviFragment : Fragment() {
             onChangeSettingFrag?.onModifyUser()
         }
 
-        btnLogout!!.setOnClickListener{
+        //auth = Firebase.auth
 
+        btnLogout!!.setOnClickListener{
+            Toast.makeText(requireContext(), "로그아웃 성공!", Toast.LENGTH_SHORT).show();
+
+            //auth?.signOut()
         }
         return view
     }

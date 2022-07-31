@@ -72,28 +72,32 @@ class SettingFragment : Fragment() {
         //val userRef = database.getReference("User")
         //userRef.setValue("Hello, World!")
         val database = Firebase.database.reference
-        database.child("user").child("uid").child(uid).child("name").get().addOnSuccessListener {
+        database.child("user").child(uid).get().addOnSuccessListener {
             Log.i("firebase", "Got value ${it.value}")
-            name.text = "${it.value}"
+            val map = it.value as HashMap<String, Any>
+            name.text = map.get("name").toString()
+            comment.text = map.get("comment").toString()
+
         }.addOnFailureListener{
             Log.e("firebase", "Error getting data", it)
         }
-
+/*
         database.child("user").child("uid").child(uid).child("comment").get().addOnSuccessListener {
             Log.i("firebase", "Got value ${it.value}")
             comment.text = "${it.value}"
         }.addOnFailureListener{
             Log.e("firebase", "Error getting data", it)
         }
+ */
 
         button?.setOnClickListener{
             if(name?.text!!.isNotEmpty()) {
-                database.child("user/uid/$uid/name").setValue(name.text.toString())
+                database.child("user/$uid/name").setValue(name.text.toString())
                 name.clearFocus()
                 Toast.makeText(requireContext(), "이름이 변경되었습니다.", Toast.LENGTH_SHORT).show()
             }
             if(comment?.text!!.isNotEmpty()) {
-                database.child("user/uid/$uid/comment").setValue(comment.text.toString())
+                database.child("user/$uid/comment").setValue(comment.text.toString())
                 comment.clearFocus()
                 Toast.makeText(requireContext(), "상태메시지가 변경되었습니다.", Toast.LENGTH_SHORT).show()
             }

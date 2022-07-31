@@ -21,12 +21,11 @@ class RegisterActivity : AppCompatActivity() {
         val email = findViewById<EditText>(R.id.email)
         val pwd = findViewById<EditText>(R.id.et_pwd)
         val pwdAgain = findViewById<EditText>(R.id.et_re_pwd)
-        val name = findViewById<EditText>(R.id.et_regi_name)
         val btnRegi = findViewById<Button>(R.id.btn_regi)
 
         btnRegi.setOnClickListener {
-            if(email.text.isEmpty() || pwd.text.isEmpty() || name.text.isEmpty() ){
-                Toast.makeText(this, "아이디와 비밀번호, 이름을 입력해 주세요.", Toast.LENGTH_SHORT).show()
+            if(email.text.isEmpty() || pwd.text.isEmpty() ){
+                Toast.makeText(this, "아이디와 비밀번호를 입력해 주세요.", Toast.LENGTH_SHORT).show()
             } else if(!android.util.Patterns.EMAIL_ADDRESS.matcher(email.text).matches()) {
                 Toast.makeText(this, "아이디를 이메일 형식으로 입력해 주세요", Toast.LENGTH_SHORT).show()
             } else if(pwd.length() < 6 || pwdAgain.length() < 6) {
