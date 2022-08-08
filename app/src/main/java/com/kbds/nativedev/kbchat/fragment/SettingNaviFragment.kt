@@ -8,6 +8,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.kbds.nativedev.kbchat.MainActivity
 import com.kbds.nativedev.kbchat.R
+import com.kbds.nativedev.kbchat.MainActivity.OnChangeSettingFragment
 
 class SettingNaviFragment : Fragment() {
 
@@ -18,7 +19,7 @@ class SettingNaviFragment : Fragment() {
         }
 
         private lateinit var onChangeSettingFrag: MainActivity.OnChangeSettingFragment
-        //const val TAG: String = "SettingFragment2"
+        const val TAG: String = "SettingFragment2"
     }
 
     override fun onCreateView(
@@ -27,18 +28,19 @@ class SettingNaviFragment : Fragment() {
         savedInstanceState: Bundle?  // 화면 왔다갔다 할때 기록남김
     ): View? {
 
-        val view = inflater.inflate(R.layout.fragment_setting_navi, container, false)
+        //val view = inflater.inflate(R.layout.fragment_setting_navi, container, false)
 
-        val btnModify = view.findViewById<Button>(R.id.btn_modify)
+        //val btnModify = view.findViewById<Button>(R.id.btn_modify)
         //val btnLogout = view.findViewById<Button>(R.id.btn_logout)
 
-
+/*
         btnModify!!.setOnClickListener{
-            SettingNaviFragment.onChangeSettingFrag?.onModifyUser()
+            //SettingNaviFragment.onChangeSettingFrag?.onModifyUser()
+            onChangeSettingFrag?.onModifyUser()
         }
-
-        //return inflater.inflate(R.layout.fragment_setting_navi, container, false)
+*/
+        return inflater.inflate(R.layout.fragment_setting_navi, container, false)
         //return super.onCreateView(inflater, container, savedInstanceState)
-        return view
+        //return view
     }
 }

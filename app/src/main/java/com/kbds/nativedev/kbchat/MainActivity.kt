@@ -58,6 +58,9 @@ class MainActivity : AppCompatActivity() {
                 settingNaviFragment = SettingNaviFragment.newInstance(callback)
 
                 supportFragmentManager.beginTransaction().replace(R.id.fragment_frame, settingNaviFragment).commit()
+
+
+
                 val intentMain = Intent(this, SettingNaviActivity::class.java)
                 startActivity(intentMain)
 /*
@@ -65,16 +68,15 @@ class MainActivity : AppCompatActivity() {
                     val intentMain = Intent(this, SettingNaviActivity::class.java)
                     startActivity(intentMain)
                 }*/
-/*
-                settingNaviFragment.btn_modify.setOnClickListener {
+
+                //settingNaviFragment.btn_modify.setOnClickListener {
                     //this.OnChangeSettingFragment
                     //SettingNaviFragment.onChangeSettingFrag?.onModifyUser()
                     //MainActivity.OnChangeSettingFragment.onModifyUser()
                     //OnChangeSettingFragment.onModifyUser
-                    //MainActivity.OnChangeSettingFragment?.
+                    //MainActivity.OnChangeSettingFragment?.onModifyUser()
 
-                }
-*/
+                //}
 
             }
         }

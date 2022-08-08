@@ -23,6 +23,11 @@ private lateinit var auth: FirebaseAuth
 private lateinit var settingNaviFragment: SettingNaviFragment
 
 class SettingNaviActivity : AppCompatActivity() {
+    fun newInstance(onChangeSettingFrag: MainActivity.OnChangeSettingFragment): SettingNaviFragment {
+        this.onChangeSettingFrag = onChangeSettingFrag
+        return SettingNaviFragment()
+    }
+    private lateinit var onChangeSettingFrag: MainActivity.OnChangeSettingFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +40,7 @@ class SettingNaviActivity : AppCompatActivity() {
         val fragmentSettingNavi = SettingNaviFragment()
 
         val btnModify = findViewById<Button>(R.id.btn_modify)
-        val btnLogout = findViewById<Button>(R.id.btn_logout)
+        //val btnLogout = findViewById<Button>(R.id.btn_logout)
 
         //settingNaviFragment = SettingNaviFragment.newInstance(callback)
         //supportFragmentManager.beginTransaction().replace(R.id.fragment_frame, settingNaviFragment).commit()
@@ -52,12 +57,13 @@ class SettingNaviActivity : AppCompatActivity() {
             //transaction.commit()
         }
         btnModify.setOnClickListener {
-            //    onChangeSettingFrag?.onModifyUser()
+            onChangeSettingFrag?.onModifyUser()
             //SettingNaviFragment.onChangeSettingFrag?.onModifyUser()
             //MainActivity.OnChangeSettingFragment.onModifyUser()
             //OnChangeSettingFragment.onModifyUser
             //MainActivity.OnChangeSettingFragment?.onModifyUser()
             //OnChangeSettingFragment.onModifyUser()
+
 
         }
 
@@ -76,10 +82,6 @@ class SettingNaviActivity : AppCompatActivity() {
             startActivity(intentMain)
         }
 */
-    }
-
-    interface OnChangeSettingFragment {
-        fun onModifyUser()
     }
 
 }
